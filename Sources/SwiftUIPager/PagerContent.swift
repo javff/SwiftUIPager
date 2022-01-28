@@ -133,6 +133,9 @@ extension Pager {
 
         /// Callback for when dragging changes
         var onDraggingChanged: ((Double) -> Void)?
+        
+        /// Callback for when dragging changes
+        var onOffsetChanged: ((Double) -> Void)?
 
         /// Callback for when dragging ends
         var onDraggingEnded: (() -> Void)?
@@ -296,6 +299,7 @@ extension Pager.PagerContent {
             self.pagerModel.draggingOffset = newOffset
             self.pagerModel.lastDraggingValue = value
             self.onDraggingChanged?(Double(-self.draggingOffset / self.pageDistance))
+            self.onOffsetChanged?(-self.draggingOffset)
             self.pagerModel.objectWillChange.send()
         }
     }

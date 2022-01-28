@@ -149,6 +149,13 @@ extension Pager.PagerContent: Buildable {
     func onDraggingChanged(_ callback: ((Double) -> Void)?) -> Self {
         mutating(keyPath: \.onDraggingChanged, value: callback)
     }
+    
+    /// Adds a callback to react when offset changes
+    ///
+    /// - Parameter callback: block to be called when  offset changes..
+    func onOffsetChanged(_ callback: ((Double) -> Void)?) -> Self {
+        mutating(keyPath: \.onOffsetChanged, value: callback)
+    }
 
     /// Adds a callback to react when dragging ends
     ///
