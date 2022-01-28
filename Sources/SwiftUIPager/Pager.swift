@@ -155,6 +155,9 @@ public struct Pager<Element, ID, PageView>: View  where PageView: View, Element:
 
     /// Callback for when dragging changes
     var onDraggingChanged: ((Double) -> Void)?
+    
+    /// Callback for when offset changes
+    var onOffsetChanged: ((Double) -> Void)?
 
     /// Callback for when dragging ends
     var onDraggingEnded: (() -> Void)?
@@ -216,6 +219,7 @@ public struct Pager<Element, ID, PageView>: View  where PageView: View, Element:
             .sensitivity(sensitivity)
             .onDraggingBegan(onDraggingBegan)
             .onDraggingChanged(onDraggingChanged)
+            .onOffsetChanged(onOffsetChanged)
             .onDraggingEnded(onDraggingEnded)
             .bounces(bounces)
             .draggingAnimation(draggingAnimation)
